@@ -1,15 +1,15 @@
-<section> 
+<section>
   <div class="well container">
     <div class="row">
       <div class="col-md-12">
         <form (submit)="onSubmit(taxNumber)">
-            <div class="input-group">
-              <input type="text" placeholder="Wpisz numer NIP/REGON/KRS" class="form-control" autocomplete="off"
-              [(ngModel)]="taxNumber" name="taxNumber">
-                <span class="input-group-btn">
-                  <input type="submit" value="Szukaj" class="btn btn-primary">
-                </span>
-             </div>
+          <div class="input-group">
+            <input type="text" placeholder="Wpisz numer NIP/REGON/KRS" class="form-control" autocomplete="off" [(ngModel)]="taxNumber"
+              name="taxNumber">
+            <span class="input-group-btn">
+              <input type="submit" value="Szukaj" class="btn btn-primary">
+            </span>
+          </div>
         </form>
       </div>
     </div>
@@ -23,5 +23,5 @@
   </div>
 </section>
 <section>
-    <app-history *ngIf="historyDOM"></app-history>
+  <app-history *ngIf="historyDOM"></app-history>
 </section>

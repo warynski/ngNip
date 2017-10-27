@@ -1,68 +1,66 @@
 <div class="well container" *ngIf="display">
-  <div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label class="control-label">Nazwa</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.Name" name="Name" [disabled]="edit">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Nazwa</label>
+                <input class="form-control" type="text" [(ngModel)]="data.Name" name="Name" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">REGON</label>
+                <input class="form-control" type="text" [(ngModel)]="data.Regon" name="Regon" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">NIP</label>
+                <input class="form-control" type="text" [(ngModel)]="data.Nip" name="Nip" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">KRS</label>
+                <input class="form-control" type="text" [(ngModel)]="data.Krs" name="Krs" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Województwo</label>
+                <input class="form-control" type="text" [(ngModel)]="data.Province" name="Province" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Powiat</label>
+                <input class="form-control" type="text" [(ngModel)]="data.County" name="County" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Gmina</label>
+                <input class="form-control" type="text" [(ngModel)]="data.Community" name="Community" [disabled]="edit">
+            </div>
         </div>
-        <div class="form-group">
-            <label class="control-label">REGON</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.Regon" name="Regon" [disabled]="edit">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">Miasto</label>
+                <input class="form-control" type="text" [(ngModel)]="data.Place" name="Place" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Kod Pocztowy</label>
+                <input class="form-control" type="text" [(ngModel)]="data.PostalCode" name="PostalCode" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Ulica</label>
+                <input class="form-control" type="text" [(ngModel)]="data.Street" name="Street" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Numer Budynku</label>
+                <input class="form-control" type="text" [(ngModel)]="data.HouseNumber" name="HouseNumber" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Numer Lokalu</label>
+                <input class="form-control" type="text" [(ngModel)]="data.ApartmentNumber" name="ApartmentNumber" [disabled]="edit">
+            </div>
+            <div class="form-group">
+                <label class="control-label">Typ</label>
+                <input class="form-control" type="text" [(ngModel)]="data.Type" name="Type" [disabled]="edit">
+            </div>
         </div>
-        <div class="form-group">
-            <label class="control-label">NIP</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.Nip" name="Nip" [disabled]="edit">
-        </div>
-        <div class="form-group">
-            <label class="control-label">KRS</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.Krs" name="Krs" [disabled]="edit">
-        </div>
-        <div class="form-group">
-            <label class="control-label">Województwo</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.Province" name="Province" [disabled]="edit">
-        </div>
-        <div class="form-group">
-            <label class="control-label">Powiat</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.County" name="County" [disabled]="edit">
-        </div>
-        <div class="form-group">
-            <label class="control-label">Gmina</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.Community" name="Community" [disabled]="edit">
-        </div> 
     </div>
-    <div class="col-md-6">
-        <div class="form-group">
-            <label class="control-label">Miasto</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.Place" name="Place" [disabled]="edit">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-primary pull-right custom-margin" (click)="closeComponent()">Zamknij</button>
+            <button class="btn btn-danger pull-right custom-margin" *ngIf="saveButton" (click)="saveData()">Zapisz</button>
         </div>
-        <div class="form-group">
-            <label class="control-label">Kod Pocztowy</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.PostalCode" name="PostalCode" [disabled]="edit">
-        </div>
-        <div class="form-group">
-            <label class="control-label">Ulica</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.Street" name="Street" [disabled]="edit">
-        </div>
-        <div class="form-group">
-            <label class="control-label">Numer Budynku</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.HouseNumber" name="HouseNumber" [disabled]="edit">
-        </div>
-        <div class="form-group">
-            <label class="control-label">Numer Lokalu</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.ApartmentNumber" name="ApartmentNumber" [disabled]="edit">
-        </div>
-        <div class="form-group">
-            <label class="control-label">Typ</label>
-            <input class="form-control"  type="text" [(ngModel)]="data.Type" name="Type" [disabled]="edit">
-        </div>      
     </div>
-  </div>
-  <div class="row">
-      <div class="col-md-12">
-          <button class="btn btn-primary pull-right custom-margin" (click)="closeComponent()">Zamknij</button>
-          <button class="btn btn-danger pull-right custom-margin" *ngIf="saveButton" (click)="saveData()">Zapisz</button>
-      </div>
-  </div>
 </div>
-
-

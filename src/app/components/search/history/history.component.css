@@ -58,3 +58,31 @@
 .custom-badge:hover {
     background-color: #da1f00
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    border-radius: 4px;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 6px 7px 19px 0px rgba(0,0,0,0.75);
+    z-index: 200;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}

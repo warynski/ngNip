@@ -14,7 +14,7 @@ export class OutputComponent implements OnInit {
   saveButton: boolean = false;
   edit: boolean = true;
 
-  constructor(private cacheService: CacheService) {}
+  constructor(private cacheService: CacheService) { }
 
   ngOnInit() {
     this.cacheService.outputData.subscribe(res => { //  Data Flow Observable
