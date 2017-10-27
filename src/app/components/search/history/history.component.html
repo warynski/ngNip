@@ -1,0 +1,33 @@
+<div class="custom-container panel panel-default">
+  <div class="panel-heading">
+    <p class="text-center">HISTORIA</p>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="list-group custom-list">
+          <li class="list-group-item clearfix" *ngFor="let i of items">
+            <p class="pull-left list-item custom-pointer" (click)="getItem(i)">{{ i }}</p>
+            <span class="badge custom-badge pull-right custom-pointer" (click)="deleteItem(i)">USUŃ</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-info custom-margin pull-right" (click)="deactivate()">Zamknij</button>
+        <button class="btn btn-danger custom-margin pull-right" (click)="clearHistoryAlert(true)">Wyczyść historię</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert" *ngIf="alert">
+  <div class="row">
+    <div class="col-md-12">
+      <p class="text-center">Czy na pewno chcesz wyczyścić całą historię?</p>
+      <button class="btn btn-danger pull-right" (click)="clearHistory()">TAK</button>
+      <button class="btn btn-info pull-right" (click)="clearHistoryAlert(false)">NIE</button>
+    </div>
+  </div>
+</div>

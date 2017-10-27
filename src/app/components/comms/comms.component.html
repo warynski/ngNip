@@ -1,0 +1,7 @@
+<div class="well custom-container z-index50" *ngIf="display">
+    <p class="text-center">{{ message }}</p>
+    <div class="progress" *ngIf="displayBar">
+        <div class="loader"></div>
+    </div>
+    <button class="btn btn-success center-block btn-padding" (click)='hideComms()' *ngIf="displayBtn">OK</button>
+</div>

@@ -1,0 +1,60 @@
+.custom-container {
+    max-width: 1100px;
+    width: 65%;
+    box-shadow: 6px 7px 19px 0px rgba(0,0,0,0.75);
+    position: absolute;
+    margin: 0 auto;
+    top: 188px;
+    left: 0;
+    right: 0;
+    z-index: 50;
+}
+
+.btn-padding {
+    padding: 8px 24px;
+}
+
+.custom-margin {
+    margin-left: 6px;
+}
+
+.alert {
+    background-color: #fafafa;
+    width: 50%;
+    box-shadow: 6px 7px 19px 0px rgba(0,0,0,0.75);
+    position: fixed;
+    margin: 0 auto;
+    top: 210px;
+    left: 0;
+    right: 0;
+    z-index: 150;
+    font-size: 15px;
+}
+
+.list-item {
+    margin: 0;
+    font-size: 16px;
+}
+
+.custom-list {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.custom-pointer {
+    cursor: pointer;
+}
+
+.custom-pointer:hover {
+    background-color: #ddd;
+}
+
+.custom-badge {
+    background-color: #f05134;
+    margin-top: 2px;
+    padding: 4px 10px;
+}
+
+.custom-badge:hover {
+    background-color: #da1f00
+}
