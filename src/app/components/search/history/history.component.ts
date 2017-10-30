@@ -25,7 +25,7 @@ export class HistoryComponent implements OnInit {
     this.alert = value;
   }
 
-  private getHistory(): void{
+  private getHistory(): void {
     this.items = this.cacheService.getHistory();
     console.log(this.items);
   }
@@ -36,7 +36,7 @@ export class HistoryComponent implements OnInit {
     this.getHistory();
   }
 
-  private getItem(item: string): void{
+  private getItem(item: string): void {
     this.cacheService.getDataFromCache(item);
     this.deactivate();
   }

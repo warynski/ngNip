@@ -23,7 +23,7 @@ export class CacheService {
       this.commsMsg.next([true, false, true, 'Rozpoznano prawidłowy ' + numberType + '. Pobieram dane.'])
     }
     setTimeout(() => {                                              // setTimeout is only for demonstration purpose
-      if (localStorage.getItem('data') == null) {
+      if ( this.localStorageEmpty() ) {
         this.getDataFromApi(string);
       } else {
         this.getDataFromCache(string);
@@ -81,7 +81,7 @@ export class CacheService {
   private pushToCache(data): void { //  Pushes Data Of Taxpayer To Local Storage
     let tempArray: Array<Object> = [];
     let tempJSON: string;
-    if (localStorage.getItem('data') === null) {
+    if ( this.localStorageEmpty() ) {
       tempArray.unshift(data);
       tempJSON = JSON.stringify(tempArray);
       localStorage.setItem('data', tempJSON);
@@ -127,7 +127,7 @@ export class CacheService {
 
   public saveData(data: Object): void { // Saves Data Entered By User To Local Storage
     let tempArray: Object[] = [];
-    if (localStorage.getItem('data') == null) {
+    if ( this.localStorageEmpty() ) {
       tempArray.push(data);
       localStorage.setItem('data', JSON.stringify(tempArray));
     } else {
@@ -165,6 +165,10 @@ export class CacheService {
       }
     }
     localStorage.setItem('data', JSON.stringify(tempData));
+  }
+
+  private localStorageEmpty():boolean{
+    if (localStorage.getItem('data')==null)return true 
   }
 
   timer = setInterval(    // Counts Remaining Time To Check If Local Storage Data Is Outdated
