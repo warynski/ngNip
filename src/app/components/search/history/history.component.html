@@ -16,10 +16,10 @@
     <div class="row">
       <div class="col-md-12">
         <div class="dropdown">
-          <button class="btn btn-default">Przechowywanie danych</button>
+          <button class="btn btn-default">Przechowywanie danych: {{ period }} h</button>
           <div class="dropdown-content">
-            <a href="#">24 godziny</a>
-            <a href="#">48 godzin</a>
+            <button class="btn" (click)="storagePeriod(24)">24 godziny</button>
+            <button class="btn" (click)="storagePeriod(48)">48 godzin</button>
           </div>
         </div>
         <button class="btn btn-info custom-margin pull-right" (click)="deactivate()">Zamknij</button>

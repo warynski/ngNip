@@ -129,7 +129,7 @@ export class SearchComponent implements OnInit {
       Street: "Bitwy Warszawskiej 1920 R.",
       HouseNumber: "7A",
       ApartmentNumber: "",
-      BusinessActivityStart: "",
+      BusinessActivityStart: new Date(),
       Type: "SP Z O O"
     },
     {
@@ -145,7 +145,7 @@ export class SearchComponent implements OnInit {
       Street: "Chemików",
       HouseNumber: "7",
       ApartmentNumber: "",
-      BusinessActivityStart: "",
+      BusinessActivityStart: new Date(),
       Type: "S.A."
     },
     {
@@ -161,7 +161,7 @@ export class SearchComponent implements OnInit {
       Street: "Jasnogórska",
       HouseNumber: "1",
       ApartmentNumber: "",
-      BusinessActivityStart: "",
+      BusinessActivityStart: new Date(),
       Type: "ODDZIAŁ ZAGRANICZNEGO PRZEDSIĘBIORCY"
     }];
     if (localStorage.getItem('data') === null) {

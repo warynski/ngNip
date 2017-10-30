@@ -9,19 +9,19 @@ import { TaxPayerInterface } from '../../models/taxpayer-interface';
 })
 export class OutputComponent implements OnInit {
 
-  data: TaxPayerInterface = {};
-  display: boolean = false;
-  saveButton: boolean = false;
-  edit: boolean = true;
+  data: TaxPayerInterface = {};       // Container For Data
+  display: boolean = false;           // Sets diaplay Of Component
+  saveButton: boolean = false;        // Sets Diaplay Of 'Save Data' Button
+  edit: boolean = true;               // Sets If Component Is Set to Display Or Enter Data
 
   constructor(private cacheService: CacheService) { }
 
   ngOnInit() {
-    this.cacheService.outputData.subscribe(res => { //  Data Flow Observable
+    this.cacheService.outputData.subscribe(res => {   //  Data Flow Observable
       this.data = res;
       this.display = true;
     })
-    this.cacheService.enterNewData.subscribe(res => {
+    this.cacheService.enterNewData.subscribe(res => {   // Allows The User To Enter Data 
       this.edit = false;
       this.display = true;
       this.data = {};
@@ -29,11 +29,11 @@ export class OutputComponent implements OnInit {
     })
   }
 
-  private saveData(): void {
+  private saveData(): void {    // Saves User Data
     this.cacheService.saveData(this.data);
   }
 
-  private closeComponent(): void {
+  private closeComponent(): void {    // Shuts Down Component 
     this.display = false;
     this.saveButton = false;
     this.edit = true;

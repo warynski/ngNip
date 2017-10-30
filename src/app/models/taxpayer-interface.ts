@@ -11,6 +11,6 @@ export interface TaxPayerInterface {
     Street?: string,
     HouseNumber?: number,
     ApartmentNumber?: number,
-    BusinessActivityStart?: string,
+    BusinessActivityStart?: any,
     Type?: string
 }

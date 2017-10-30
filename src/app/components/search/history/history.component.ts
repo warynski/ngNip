@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
 import { CacheService } from '../../../services/cache.service';
 
 @Component({
@@ -10,8 +9,9 @@ import { CacheService } from '../../../services/cache.service';
 export class HistoryComponent implements OnInit {
   items: any;
   alert: boolean = false;
+  period: number = 24;
 
-  constructor(private cacheService: CacheService) {}
+  constructor(private cacheService: CacheService) { }
 
   ngOnInit() {
     this.getHistory();
@@ -44,5 +44,10 @@ export class HistoryComponent implements OnInit {
   private deleteItem(item: string): void {
     this.cacheService.deleteHistoryItem(item);
     this.getHistory()
+  }
+
+  private storagePeriod(period: number): void {
+    this.period = period;
+    this.cacheService.dataVsDate(period);
   }
 }
