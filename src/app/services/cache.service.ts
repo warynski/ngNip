@@ -22,8 +22,8 @@ export class CacheService {
     } else {
       this.commsMsg.next([true, false, true, 'Rozpoznano prawidłowy ' + numberType + '. Pobieram dane.'])
     }
-    setTimeout(() => {                                              // setTimeout is only for demonstration purpose
-      if ( this.localStorageEmpty() ) {
+    setTimeout(() => {                                              // SetTimeout Is Only For Comms Demonstration Purpose
+      if (this.localStorageEmpty()) {
         this.getDataFromApi(string);
       } else {
         this.getDataFromCache(string);
@@ -81,7 +81,7 @@ export class CacheService {
   private pushToCache(data): void { //  Pushes Data Of Taxpayer To Local Storage
     let tempArray: Array<Object> = [];
     let tempJSON: string;
-    if ( this.localStorageEmpty() ) {
+    if (this.localStorageEmpty()) {
       tempArray.unshift(data);
       tempJSON = JSON.stringify(tempArray);
       localStorage.setItem('data', tempJSON);
@@ -127,7 +127,7 @@ export class CacheService {
 
   public saveData(data: Object): void { // Saves Data Entered By User To Local Storage
     let tempArray: Object[] = [];
-    if ( this.localStorageEmpty() ) {
+    if (this.localStorageEmpty()) {
       tempArray.push(data);
       localStorage.setItem('data', JSON.stringify(tempArray));
     } else {
@@ -144,11 +144,11 @@ export class CacheService {
 
   private convertDate(data: TaxPayerInterface) {    // Changes Date Format
     let serverDate = data.BusinessActivityStart;
-    let year = parseInt(serverDate.substr(0,4));
-    let month = (parseInt(serverDate.substr(5,2))) - 1;
-    let day = parseInt(serverDate.substr(8,2));
-    let hour = parseInt(serverDate.substr(11,2));
-    let minutes = parseInt(serverDate.substr(14,2));
+    let year = parseInt(serverDate.substr(0, 4));
+    let month = (parseInt(serverDate.substr(5, 2))) - 1;
+    let day = parseInt(serverDate.substr(8, 2));
+    let hour = parseInt(serverDate.substr(11, 2));
+    let minutes = parseInt(serverDate.substr(14, 2));
     let clientDate = new Date(year, month, day, hour, minutes);
     data.BusinessActivityStart = clientDate;
     return data;
@@ -157,25 +157,25 @@ export class CacheService {
   private outdated(): void {    // Checks If Data Is Outdated And Deletes It
     let currentDate = new Date();
     let tempData: any = JSON.parse(localStorage.getItem('data'));
-    for ( let i = 0; i < tempData.length; i++ ) {
+    for (let i = 0; i < tempData.length; i++) {
       console.log(currentDate.getTime());
       console.log(Date.parse(tempData[i].BusinessActivityStart))
-      if ( currentDate.getTime() <= (Date.parse(tempData[i].BusinessActivityStart)) ) {
-        tempData.splice(i,1);
+      if (currentDate.getTime() <= (Date.parse(tempData[i].BusinessActivityStart))) {
+        tempData.splice(i, 1);
       }
     }
     localStorage.setItem('data', JSON.stringify(tempData));
   }
 
-  private localStorageEmpty():boolean{
-    if (localStorage.getItem('data')==null)return true 
+  private localStorageEmpty(): boolean {
+    if (localStorage.getItem('data') == null) return true
   }
 
   timer = setInterval(    // Counts Remaining Time To Check If Local Storage Data Is Outdated
     () => {
       this.outdated();
     },
-    3600000*24
+    3600000 * 24
   )
 
   public dataVsDate(period: number): void {   // Launches When User Changes Data Storage Peroid
@@ -184,7 +184,7 @@ export class CacheService {
       () => {
         this.outdated();
       },
-      3600000*period
+      3600000 * period
     )
   }
 
